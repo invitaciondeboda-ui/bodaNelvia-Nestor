@@ -173,13 +173,62 @@
   </script>
 </head>
 
+
+
 <body>
+
+
+
   <!-- Logo -->
   <section>
     <div class="hero-content text-center">
       <img src="img/logo.png" alt="Modo">
     </div>
   </section>
+
+  <!-- Música para acompañarnos -->
+<section class="text-center py-5" style="background-color:#F3F5F0;">
+  <div class="container">
+    <p style="font-family:'Hurricane', cursive; font-size:2rem; color:#4A5A3D;">
+      Cada historia tiene su melodía 🎶
+    
+
+<!-- BOTÓN PARA REPRODUCIR CANCIÓN -->
+<div style="text-align:center; margin-top:2rem;">
+  <button id="playLocalMusic"
+    style="background-color:#4A5A3D; color:#F3F5F0; border:none; padding:12px 28px; border-radius:30px; font-size:1.1rem; cursor:pointer; transition:0.3s; font-family:'Poppins', sans-serif;">
+    🎶 Reproducir canción
+  </button>
+</div>
+</section>
+<!-- AUDIO LOCAL -->
+<audio id="weddingSong" src="cancion.mp3" preload="auto"></audio>
+
+<script>
+  const playButton = document.getElementById('playLocalMusic');
+  const audio = document.getElementById('weddingSong');
+
+  playButton.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+      playButton.textContent = "⏸️ Pausar canción";
+    } else {
+      audio.pause();
+      playButton.textContent = "🎶 Reproducir canción";
+    }
+  });
+
+  // OPCIONAL: para que se reproduzca automáticamente al entrar (algunos navegadores requieren interacción)
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      audio.volume = 0.5; // volumen suave
+      audio.play().catch(() => {
+        // si no se permite autoplay, no pasa nada
+      });
+    }, 1000);
+  });
+</script>
+
 
   <!-- Imagen principal -->
   <section class="text-center my-4">
@@ -318,6 +367,34 @@ Así nació una amistad sincera que, con el tiempo,<br> se transformó en amor y
     </div>
   </section>
 
+  <!-- Regalo Especial -->
+<section id="regalo" class="section py-5 text-center" style="background-color:#E9ECE4;">
+  <div class="container">
+    <h2 class="mb-4" style="font-family:'Hurricane', cursive; font-size:2.5rem; color:#4A5A3D;">
+      Un detalle desde el corazón
+    </h2>
+
+    <p class="mb-4" style="max-width:700px; margin:auto; font-size:1.1rem; color:#4A5A3D; line-height:1.7;">
+      Si deseás acompañarnos con un gesto especial, más allá de tu presencia —que ya es el mayor regalo—,
+      podés bendecirnos con una contribución para nuestro nuevo comienzo juntos.  
+      Cada detalle, por pequeño que sea, será parte de esta historia que empezamos a escribir.
+    </p>
+
+    <div class="card shadow-lg mt-4 mx-auto" style="max-width:400px; border:none; background-color:#F8FAF6;">
+      <div class="card-body">
+        <h4 class="card-title mb-2" style="color:#4A5A3D;">Alias para transferencias</h4>
+        <p class="card-text" style="font-size:1.2rem; font-weight:bold; color:#6B705C;">
+          <span style="font-family:'Courier New', monospace;">boda.nelvia.nestor</span>
+        </p>
+        <p class="mt-3" style="color:#4A5A3D; font-style:italic;">
+          Gracias por ser parte de nuestro camino 💚
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
   <!-- Galería -->
   <section id="galeria" class="py-5 text-center">
     <div class="container">
@@ -377,8 +454,9 @@ Así nació una amistad sincera que, con el tiempo,<br> se transformó en amor y
   <!-- Cuenta regresiva -->
   <section id="cuenta-regresiva" class="py-5 text-center ">
     <div class="container">
+       <h3 class="text-muted mb-5">para la ceremonia religiosa y la fiesta 💒</h3>
       <h2 class="fw-bold mb-4">Faltan...</h2>
-      <h3 class="text-muted mb-5">para la ceremonia religiosa y la fiesta 💒</h3>
+      
 
       <div id="contador" class="d-flex justify-content-center gap-4 fs-3 fw-semibold">
         <div><span id="dias">00</span><div class="text-muted fs-6">Días</div></div>
